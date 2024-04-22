@@ -2,3 +2,85 @@
   width: 162px;
   height: 30px;
 }
+
+@mixin btn {
+  &:active {
+    // background-image: linear-gradient(to top, #a872e3, #ff92e0);
+    opacity: 0.8;
+  }
+  width: 218px;
+  height: 50px;
+  font-weight: 500;
+  padding: 10px 20px;
+  // background-image: linear-gradient(
+  //   to top,
+  //   c.$gradient-dark-color,
+  //   c.$gradient-light-color
+  // );
+  background: linear-gradient(
+    180deg,
+    c.$gradient-light-color -20%,
+    c.$gradient-medium-color 40%,
+    c.$gradient-dark-color 130%
+  );
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  color: c.$primary-bg-color;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+@mixin card-op {
+  width: 100%;
+  height: 72px;
+  background-color: c.$secondary-bg-color;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  align-content: center;
+  padding-left: 10px;
+  margin-bottom: 25px;
+  margin-left: 15px;
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 10px;
+  //   right: 10px;
+  //   width: 24px;
+  //   height: 24px;
+  //   background-color: c.$gradient-dark-color;
+  //   border-radius: 50%;
+  // }
+
+  .step {
+    @include pastille-op;
+  }
+
+  span {
+    font-weight: 500;
+  }
+}
+
+@mixin i-op {
+  &:active {
+    color: c.$gradient-dark-color;
+  }
+  font-size: 18px;
+  color: c.$icon-color;
+  padding-right: 20px;
+}
+
+@mixin pastille-op {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 0;
+  left: -20px;
+  background-color: c.$gradient-dark-color;
+  border-radius: 50%;
+  font-size: 14px;
+  color: c.$primary-bg-color;
+  justify-content: center;
+  align-content: center;
+  padding: 4px 8px;
+}
