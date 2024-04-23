@@ -41,16 +41,6 @@
   padding-left: 10px;
   margin-bottom: 25px;
   margin-left: 15px;
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 10px;
-  //   right: 10px;
-  //   width: 24px;
-  //   height: 24px;
-  //   background-color: c.$gradient-dark-color;
-  //   border-radius: 50%;
-  // }
 
   .step {
     @include pastille-op;
@@ -83,4 +73,22 @@
   justify-content: center;
   align-content: center;
   padding: 4px 8px;
+}
+
+@mixin new {
+  height: 29px;
+  width: 80px;
+  background-color: c.$accent-color;
+  color: c.$secondary-text-color;
+}
+
+@mixin i-heart {
+  &:active {
+    background: linear-gradient(
+      -180deg,
+      c.$gradient-light-color -20%,
+      c.$gradient-medium-color 40%,
+      c.$gradient-dark-color 130%
+    );
+  }
 }
