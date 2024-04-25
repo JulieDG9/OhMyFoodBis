@@ -22,7 +22,7 @@ header .navbar {
   padding-top: 25px;
   display: flex;
   justify-content: center;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
 }
 header .navbar .logo {
   width: 162px;
@@ -54,8 +54,8 @@ header .location .location-input::placeholder {
 
 .explore {
   text-align: center;
-  background-color: #f3f3f3;
-  padding: 20px 30px 60px;
+  background-color: #f6f6f6;
+  padding: 20px 30px 50px;
 }
 .explore h1 {
   font-weight: 700;
@@ -67,12 +67,12 @@ header .location .location-input::placeholder {
   color: #353535;
   padding-bottom: 30px;
 }
-.explore button {
+.explore .btn-explore {
   width: 218px;
   height: 50px;
   font-weight: 500;
   padding: 10px 20px;
-  background-image: linear-gradient(to top, #9356dc, #ff79da);
+  background: linear-gradient(180deg, #ff79da -20%, #ca68db 40%, #9356dc 130%);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   color: white;
   font-size: 1rem;
@@ -80,22 +80,246 @@ header .location .location-input::placeholder {
   border-radius: 25px;
   cursor: pointer;
 }
-.explore button:active {
-  background-image: linear-gradient(to top, #a872e3, #ff92e0);
+.explore .btn-explore:active {
+  opacity: 0.8;
 }
 
 .operation {
-  padding: 60px 20px;
+  padding: 50px 35px 40px 20px;
+}
+.operation h2 {
+  padding-bottom: 30px;
+}
+.operation .choose {
+  width: 100%;
+  height: 72px;
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  align-content: center;
+  padding-left: 10px;
+  margin-bottom: 25px;
+  margin-left: 15px;
+}
+.operation .choose .step {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 0;
+  left: -20px;
+  background-color: #9356dc;
+  border-radius: 50%;
+  font-size: 14px;
+  color: white;
+  justify-content: center;
+  align-content: center;
+  padding: 4px 8px;
+}
+.operation .choose span {
+  font-weight: 500;
+}
+.operation .choose .fa-mobile-screen-button {
+  font-size: 18px;
+  color: #7e7e7e;
+  padding-right: 20px;
+}
+.operation .choose .fa-mobile-screen-button:active {
+  color: #9356dc;
+}
+.operation .compose {
+  width: 100%;
+  height: 72px;
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  align-content: center;
+  padding-left: 10px;
+  margin-bottom: 25px;
+  margin-left: 15px;
+}
+.operation .compose .step {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 0;
+  left: -20px;
+  background-color: #9356dc;
+  border-radius: 50%;
+  font-size: 14px;
+  color: white;
+  justify-content: center;
+  align-content: center;
+  padding: 4px 8px;
+}
+.operation .compose span {
+  font-weight: 500;
+}
+.operation .compose .fa-list-ul {
+  font-size: 18px;
+  color: #7e7e7e;
+  padding-right: 20px;
+}
+.operation .compose .fa-list-ul:active {
+  color: #9356dc;
+}
+.operation .taste {
+  width: 100%;
+  height: 72px;
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  align-content: center;
+  padding-left: 10px;
+  margin-bottom: 25px;
+  margin-left: 15px;
+}
+.operation .taste .step {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 0;
+  left: -20px;
+  background-color: #9356dc;
+  border-radius: 50%;
+  font-size: 14px;
+  color: white;
+  justify-content: center;
+  align-content: center;
+  padding: 4px 8px;
+}
+.operation .taste span {
+  font-weight: 500;
+}
+.operation .taste .fa-store {
+  font-size: 18px;
+  color: #7e7e7e;
+  padding-right: 20px;
+}
+.operation .taste .fa-store:active {
+  color: #9356dc;
 }
 
-.card {
+.section-restaurants {
+  padding: 55px 20px;
+  background-color: #f6f6f6;
+}
+.section-restaurants h2 {
+  padding-bottom: 20px;
+}
+.section-restaurants .restaurants-cardlink {
   height: 251px;
+  text-decoration: none;
 }
-.card .restaurants-cardlink {
-  height: 231px;
+.section-restaurants .restaurants-cardlink .card {
+  max-width: 490px;
+  height: 251px;
+  width: 100%;
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
-.card img {
-  height: 231px;
+.section-restaurants .restaurants-cardlink .card .img-content {
+  height: 175px;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+}
+.section-restaurants .restaurants-cardlink .card .img-content .resized-img {
+  object-fit: cover;
+  object-position: center 61%;
+}
+.section-restaurants .restaurants-cardlink .card .label-new {
+  z-index: 99;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  background-color: #99e2d0;
+  color: #008766;
+  border: none;
+  border-radius: 3px;
+  padding: 7px 13px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 80px;
+  height: 29px;
+}
+.section-restaurants .restaurants-cardlink .card img {
+  max-width: 490px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: 15px 15px 0 0;
+}
+.section-restaurants .restaurants-cardlink .card .card-content {
+  height: 75px;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+  position: relative;
+  padding-left: 15px;
+  bottom: -1px;
+}
+.section-restaurants .restaurants-cardlink .card .card-content .card-titles {
+  height: 70px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+}
+.section-restaurants .restaurants-cardlink .card .card-content .card-titles h3 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 3px;
+}
+.section-restaurants .restaurants-cardlink .card .card-content .card-titles .card-subtitle {
+  font-weight: 200;
+  font-size: 17px;
+}
+.section-restaurants .restaurants-cardlink .card .card-content .btn-heart {
+  width: 50px;
+  height: 70px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: none;
+  border: none;
+}
+.section-restaurants .restaurants-cardlink .card .card-content .btn-heart .fa-heart {
+  font-size: 22px;
+}
+.section-restaurants .restaurants-cardlink .card .card-content .btn-heart .fa-heart:active {
+  background: linear-gradient(360deg, #ff79da -20%, #ca68db 40%, #9356dc 130%);
+}
+
+footer {
+  background-color: #353535;
+  color: white;
+  padding: 10px 25px;
+}
+footer .logo {
+  padding: 10px 0;
+  width: 110px;
+}
+footer ul {
+  list-style-type: none;
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+footer ul li {
+  padding-bottom: 8px;
+}
+footer ul i {
+  height: 13px;
+  font-size: 12px;
+  padding-right: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */
