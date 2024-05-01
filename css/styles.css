@@ -7,9 +7,53 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Roboto;
+  display: flex;
+  justify-content: center;
+}
+body .main-container {
+  width: 100%;
 }
 
+.bg-loader {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 97;
+  animation: fadeOut 1s forwards;
+}
+.bg-loader .loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #99e2d0;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite, fadeOut 1s forwards;
+  z-index: 99;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    display: none;
+  }
+}
 header {
   box-sizing: border-box;
   display: flex;
@@ -39,11 +83,13 @@ header .location {
   padding: 15px 0;
 }
 header .location .fa-solid fa-location-dot {
+  padding-left: 50px;
   height: 16px;
   width: 12px;
   color: #353535;
 }
 header .location .location-input {
+  width: 115px;
   background-color: #eaeaea;
   border: none;
   font-size: 1rem;
@@ -84,13 +130,41 @@ header .location .location-input::placeholder {
   opacity: 0.8;
 }
 
-.operation {
+.section-op {
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .section-op {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.section-op .operation {
+  width: 100%;
+  padding: 20px calc((100% - 375px) / 8);
   padding: 50px 35px 40px 20px;
 }
-.operation h2 {
+@media only screen and (min-width: 768px) {
+  .section-op .operation {
+    max-width: 1080px;
+  }
+}
+.section-op .operation h2 {
   padding-bottom: 30px;
 }
-.operation .choose {
+.section-op .operation .cards-op {
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  .section-op .operation .cards-op {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.section-op .operation .cards-op .choose {
+  margin-right: 20px;
+  min-width: 265px;
   width: 100%;
   height: 72px;
   background-color: #f6f6f6;
@@ -101,7 +175,7 @@ header .location .location-input::placeholder {
   margin-bottom: 25px;
   margin-left: 15px;
 }
-.operation .choose .step {
+.section-op .operation .cards-op .choose .step {
   width: 20px;
   height: 20px;
   position: relative;
@@ -115,18 +189,20 @@ header .location .location-input::placeholder {
   align-content: center;
   padding: 4px 8px;
 }
-.operation .choose span {
+.section-op .operation .cards-op .choose span {
   font-weight: 500;
 }
-.operation .choose .fa-mobile-screen-button {
+.section-op .operation .cards-op .choose .fa-mobile-screen-button {
   font-size: 18px;
   color: #7e7e7e;
   padding-right: 20px;
 }
-.operation .choose .fa-mobile-screen-button:active {
+.section-op .operation .cards-op .choose .fa-mobile-screen-button:active {
   color: #9356dc;
 }
-.operation .compose {
+.section-op .operation .cards-op .compose {
+  margin-right: 20px;
+  min-width: 265px;
   width: 100%;
   height: 72px;
   background-color: #f6f6f6;
@@ -137,7 +213,7 @@ header .location .location-input::placeholder {
   margin-bottom: 25px;
   margin-left: 15px;
 }
-.operation .compose .step {
+.section-op .operation .cards-op .compose .step {
   width: 20px;
   height: 20px;
   position: relative;
@@ -151,18 +227,19 @@ header .location .location-input::placeholder {
   align-content: center;
   padding: 4px 8px;
 }
-.operation .compose span {
+.section-op .operation .cards-op .compose span {
   font-weight: 500;
 }
-.operation .compose .fa-list-ul {
+.section-op .operation .cards-op .compose .fa-list-ul {
   font-size: 18px;
   color: #7e7e7e;
   padding-right: 20px;
 }
-.operation .compose .fa-list-ul:active {
+.section-op .operation .cards-op .compose .fa-list-ul:active {
   color: #9356dc;
 }
-.operation .taste {
+.section-op .operation .cards-op .taste {
+  min-width: 265px;
   width: 100%;
   height: 72px;
   background-color: #f6f6f6;
@@ -173,7 +250,7 @@ header .location .location-input::placeholder {
   margin-bottom: 25px;
   margin-left: 15px;
 }
-.operation .taste .step {
+.section-op .operation .cards-op .taste .step {
   width: 20px;
   height: 20px;
   position: relative;
@@ -187,50 +264,83 @@ header .location .location-input::placeholder {
   align-content: center;
   padding: 4px 8px;
 }
-.operation .taste span {
+.section-op .operation .cards-op .taste span {
   font-weight: 500;
 }
-.operation .taste .fa-store {
+.section-op .operation .cards-op .taste .fa-store {
   font-size: 18px;
   color: #7e7e7e;
   padding-right: 20px;
 }
-.operation .taste .fa-store:active {
+.section-op .operation .cards-op .taste .fa-store:active {
   color: #9356dc;
 }
 
-.section-restaurants {
-  padding: 55px 20px;
+.section-resto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   background-color: #f6f6f6;
+  padding: 55px 20px;
 }
-.section-restaurants h2 {
+.section-resto .bloc-restaurants {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .section-resto .bloc-restaurants {
+    padding: 0 20px;
+    max-width: 1080px;
+  }
+}
+.section-resto .bloc-restaurants h2 {
   padding-bottom: 20px;
 }
-.section-restaurants .restaurants-cardlink {
-  height: 251px;
-  text-decoration: none;
+.section-resto .bloc-restaurants .resto-cards-boxes {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2rem;
 }
-.section-restaurants .restaurants-cardlink .card {
-  max-width: 490px;
+@media only screen and (min-width: 768px) {
+  .section-resto .bloc-restaurants .resto-cards-boxes {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+    row-gap: 2rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .section-resto .bloc-restaurants .resto-cards-boxes {
+    max-width: 1080px;
+  }
+}
+.section-resto .bloc-restaurants .resto-cards-boxes .card {
+  min-width: 251px;
   height: 251px;
-  width: 100%;
   background-color: white;
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 20px;
-}
-.section-restaurants .restaurants-cardlink .card .img-content {
-  height: 175px;
   position: relative;
-  object-fit: cover;
+}
+@media only screen and (min-width: 768px) {
+  .section-resto .bloc-restaurants .resto-cards-boxes .card {
+    max-width: 490px;
+  }
+}
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink {
+  height: 251px;
+  text-decoration: none;
+}
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink .img-content {
+  height: 175px;
   object-position: center;
 }
-.section-restaurants .restaurants-cardlink .card .img-content .resized-img {
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink .img-content .resized-img {
   object-fit: cover;
   object-position: center 61%;
 }
-.section-restaurants .restaurants-cardlink .card .label-new {
-  z-index: 99;
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink .label-new {
+  z-index: 95;
   position: absolute;
   top: 13px;
   right: 13px;
@@ -244,19 +354,16 @@ header .location .location-input::placeholder {
   width: 80px;
   height: 29px;
 }
-.section-restaurants .restaurants-cardlink .card img {
-  max-width: 490px;
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink img {
   width: 100%;
   height: 100%;
-  position: absolute;
   display: flex;
   justify-content: center;
   background-size: cover;
   object-fit: cover;
-  object-position: bottom;
   border-radius: 15px 15px 0 0;
 }
-.section-restaurants .restaurants-cardlink .card .card-content {
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink .card-content {
   height: 75px;
   border-radius: 0 0 15px 15px;
   display: flex;
@@ -266,7 +373,7 @@ header .location .location-input::placeholder {
   padding-left: 15px;
   bottom: -1px;
 }
-.section-restaurants .restaurants-cardlink .card .card-content .card-titles {
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink .card-content .card-titles {
   height: 70px;
   width: 90%;
   display: flex;
@@ -274,29 +381,41 @@ header .location .location-input::placeholder {
   justify-content: center;
   color: black;
 }
-.section-restaurants .restaurants-cardlink .card .card-content .card-titles h3 {
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink .card-content .card-titles h3 {
   font-size: 18px;
   font-weight: 600;
   padding-bottom: 3px;
 }
-.section-restaurants .restaurants-cardlink .card .card-content .card-titles .card-subtitle {
+.section-resto .bloc-restaurants .resto-cards-boxes .card .restaurants-cardlink .card-content .card-titles .card-subtitle {
   font-weight: 200;
   font-size: 17px;
 }
-.section-restaurants .restaurants-cardlink .card .card-content .btn-heart {
-  width: 50px;
-  height: 70px;
+.section-resto .bloc-restaurants .resto-cards-boxes .card .btn-heart {
+  width: 25px;
+  height: 25px;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   background: none;
   border: none;
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
 }
-.section-restaurants .restaurants-cardlink .card .card-content .btn-heart .fa-heart {
+.section-resto .bloc-restaurants .resto-cards-boxes .card .btn-heart .fa-solid {
+  opacity: 0;
+  transition: opacity 1s;
+  background-clip: text;
+  color: transparent;
+  position: absolute;
+  background-image: linear-gradient(360deg, #ff79da -20%, #ca68db 40%, #9356dc 130%);
+}
+.section-resto .bloc-restaurants .resto-cards-boxes .card .btn-heart:active .fa-solid {
+  opacity: 1;
+}
+.section-resto .bloc-restaurants .resto-cards-boxes .card .btn-heart:active .fa-regular {
+  display: none;
+}
+.section-resto .bloc-restaurants .resto-cards-boxes .card .btn-heart .fa-heart {
   font-size: 22px;
-}
-.section-restaurants .restaurants-cardlink .card .card-content .btn-heart .fa-heart:active {
-  background: linear-gradient(360deg, #ff79da -20%, #ca68db 40%, #9356dc 130%);
 }
 
 footer {
@@ -304,22 +423,61 @@ footer {
   color: white;
   padding: 10px 25px;
 }
-footer .logo {
+@media only screen and (min-width: 768px) {
+  footer .footer-content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  footer .footer-content {
+    gap: 50px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  footer .footer-content {
+    max-width: 1440px;
+  }
+}
+footer .footer-content a {
+  text-decoration: none;
+  color: white;
+}
+footer .footer-content .logo-footer {
+  font-family: "Shrikhand";
+  font-size: 18px;
   padding: 10px 0;
   width: 110px;
+  margin-bottom: 5px;
 }
-footer ul {
+footer .footer-content ul {
   list-style-type: none;
   padding-bottom: 10px;
   font-weight: 400;
 }
-footer ul li {
+@media only screen and (min-width: 768px) {
+  footer .footer-content ul {
+    display: flex;
+    align-items: center;
+    padding-top: 11px;
+    gap: 15px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  footer .footer-content ul {
+    gap: 30px;
+  }
+}
+footer .footer-content ul li {
   padding-bottom: 8px;
 }
-footer ul i {
+footer .footer-content ul i {
   height: 13px;
+  width: 12px;
   font-size: 12px;
-  padding-right: 10px;
+  margin-right: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -10,9 +10,59 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Roboto;
+  display: flex;
+  justify-content: center;
+  .main-container {
+    width: 100%;
+  }
 }
+.bg-loader {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  // min-height: 100vh;
+  background-color: c.$primary-bg-color;
+  z-index: 97;
+  animation: fadeOut 1s forwards;
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid c.$accent-color;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite, fadeOut 1s forwards;
+    // position: absolute;
+    // top: 20px;
+    // left: 100px;
+    z-index: 99;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    // opacity: 0;
+    display: none;
+  }
+}
+
 // section Header
 header {
   box-sizing: border-box;
@@ -40,11 +90,13 @@ header {
     gap: 17px;
     padding: 15px 0;
     .fa-solid fa-location-dot {
+      padding-left: 50px;
       height: 16px;
       width: 12px;
       color: c.$footer-bg-color;
     }
     .location-input {
+      width: 115px;
       &::placeholder {
         color: c.$footer-bg-color;
       }
@@ -59,6 +111,7 @@ header {
   text-align: center;
   background-color: c.$secondary-bg-color;
   padding: 20px 30px 50px;
+
   h1 {
     font-weight: 700;
     padding: 20px;
@@ -76,131 +129,194 @@ header {
 }
 
 // section fonctionnement
-.operation {
-  padding: 50px 35px 40px 20px;
-  h2 {
-    padding-bottom: 30px;
+.section-op {
+  width: 100%;
+  @include tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .choose {
-    @include card-op;
-    .fa-mobile-screen-button {
-      @include i-op;
+  .operation {
+    width: 100%;
+    padding: 20px calc((100% - 375px) / 8);
+    @include tab {
+      max-width: 1080px;
     }
-  }
-  .compose {
-    @include card-op;
-    .fa-list-ul {
-      @include i-op;
+    padding: 50px 35px 40px 20px;
+    h2 {
+      padding-bottom: 30px;
     }
-  }
-  .taste {
-    @include card-op;
-    .fa-store {
-      @include i-op;
+    .cards-op {
+      width: 100%;
+      @include desktop {
+        display: flex;
+        flex-direction: row;
+      }
+      .choose {
+        margin-right: 20px;
+        @include card-op;
+        .fa-mobile-screen-button {
+          @include i-op;
+        }
+      }
+      .compose {
+        margin-right: 20px;
+        @include card-op;
+
+        .fa-list-ul {
+          @include i-op;
+        }
+      }
+      .taste {
+        @include card-op;
+        .fa-store {
+          @include i-op;
+        }
+      }
     }
   }
 }
 
 // section Restaurants
-.section-restaurants {
-  padding: 55px 20px;
+.section-resto {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   background-color: c.$secondary-bg-color;
-  h2 {
-    padding-bottom: 20px;
-  }
+  padding: 55px 20px;
 
-  .restaurants-cardlink {
-    height: 251px;
-    text-decoration: none;
-    .card {
-      max-width: 490px;
-      height: 251px;
-      width: 100%;
-      background-color: c.$primary-bg-color;
-      border-radius: 15px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      .img-content {
-        height: 175px;
-        position: relative;
-        object-fit: cover;
-        object-position: center;
-        .resized-img {
-          object-fit: cover;
-          object-position: center 61%;
+  .bloc-restaurants {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    @include tab {
+      padding: 0 20px;
+      max-width: 1080px;
+    }
+    h2 {
+      padding-bottom: 20px;
+    }
+
+    .resto-cards-boxes {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: 2rem;
+      @include tab {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+        row-gap: 2rem;
+      }
+      @include desktop {
+        max-width: 1080px;
+      }
+
+      .card {
+        min-width: 251px;
+        @include tab {
+          max-width: 490px;
         }
-      }
-      .label-new {
-        z-index: 99;
-        position: absolute;
-        top: 13px;
-        right: 13px;
-        background-color: c.$accent-color;
-        color: c.$secondary-text-color;
-        border: none;
-        border-radius: 3px;
-        padding: 7px 13px;
-        font-size: 14px;
-        font-weight: 500;
-        width: 80px;
-        height: 29px;
-      }
-      img {
-        max-width: 490px;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        background-size: cover;
-        object-fit: cover;
-        object-position: bottom;
-        border-radius: 15px 15px 0 0;
-      }
-
-      .card-content {
-        height: 75px;
-        border-radius: 0 0 15px 15px;
-        display: flex;
+        height: 251px;
         background-color: c.$primary-bg-color;
-        flex-direction: row;
+        border-radius: 15px;
+        overflow: hidden;
         position: relative;
-        padding-left: 15px;
-        bottom: -1px;
-        .card-titles {
-          height: 70px;
-          width: 90%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          color: c.$text-color;
-          h3 {
-            font-size: 18px;
-            font-weight: 600;
-            padding-bottom: 3px;
+        .restaurants-cardlink {
+          height: 251px;
+          text-decoration: none;
+          .img-content {
+            height: 175px;
+            object-position: center;
+            .resized-img {
+              object-fit: cover;
+              object-position: center 61%;
+            }
           }
-          .card-subtitle {
-            font-weight: 200;
-            font-size: 17px;
+          .label-new {
+            z-index: 95;
+            position: absolute;
+            top: 13px;
+            right: 13px;
+            background-color: c.$accent-color;
+            color: c.$secondary-text-color;
+            border: none;
+            border-radius: 3px;
+            padding: 7px 13px;
+            font-size: 14px;
+            font-weight: 500;
+            width: 80px;
+            height: 29px;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            background-size: cover;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+          }
+
+          .card-content {
+            height: 75px;
+            border-radius: 0 0 15px 15px;
+            display: flex;
+            background-color: c.$primary-bg-color;
+            flex-direction: row;
+            position: relative;
+            padding-left: 15px;
+            bottom: -1px;
+            .card-titles {
+              height: 70px;
+              width: 90%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              color: c.$text-color;
+              h3 {
+                font-size: 18px;
+                font-weight: 600;
+                padding-bottom: 3px;
+              }
+              .card-subtitle {
+                font-weight: 200;
+                font-size: 17px;
+              }
+            }
           }
         }
         .btn-heart {
-          width: 50px;
-          height: 70px;
+          width: 25px;
+          height: 25px;
           display: flex;
-          justify-content: flex-start;
-          align-items: center;
           background: none;
           border: none;
-          .fa-heart {
-            &:active {
-              background: linear-gradient(
-                360deg,
-                c.$gradient-light-color -20%,
-                c.$gradient-medium-color 40%,
-                c.$gradient-dark-color 130%
-              );
+          position: absolute;
+          bottom: 25px;
+          right: 25px;
+          .fa-solid {
+            opacity: 0;
+            transition: opacity 1s;
+            background-clip: text;
+            color: transparent;
+            position: absolute;
+            // bottom: 3px;
+            // right: 3px;
+            background-image: linear-gradient(
+              360deg,
+              c.$gradient-light-color -20%,
+              c.$gradient-medium-color 40%,
+              c.$gradient-dark-color 130%
+            );
+          }
+          &:active {
+            .fa-solid {
+              opacity: 1;
             }
+            .fa-regular {
+              display: none;
+            }
+          }
+          .fa-heart {
             font-size: 22px;
           }
         }
@@ -208,29 +324,57 @@ header {
     }
   }
 }
-
+//section footer
 footer {
   background-color: c.$footer-bg-color;
   color: c.$primary-bg-color;
   padding: 10px 25px;
-  .logo {
-    padding: 10px 0;
-    width: 110px;
-  }
-  ul {
-    list-style-type: none;
-    padding-bottom: 10px;
-    font-weight: 400;
-    li {
-      padding-bottom: 8px;
+  .footer-content {
+    @include tab {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      gap: 15px;
     }
-    i {
-      height: 13px;
-      font-size: 12px;
-      padding-right: 10px;
+    @include desktop {
+      gap: 50px;
+    }
+    @include xl {
+      max-width: 1440px;
+    }
+    a {
+      text-decoration: none;
+      color: c.$primary-bg-color;
+    }
+    .logo-footer {
+      font-family: "Shrikhand";
+      font-size: 18px;
+      padding: 10px 0;
+      width: 110px;
+      margin-bottom: 5px;
+    }
+    ul {
+      list-style-type: none;
+      padding-bottom: 10px;
+      font-weight: 400;
+      @include tab {
+        display: flex;
+        align-items: center;
+        padding-top: 11px;
+        gap: 15px;
+      }
+      @include desktop {
+        gap: 30px;
+      }
+      li {
+        padding-bottom: 8px;
+      }
+      i {
+        height: 13px;
+        width: 12px;
+        font-size: 12px;
+        margin-right: 10px;
+      }
     }
   }
-}
-
-@media only screen and (min-width: 1024px) {
 }
