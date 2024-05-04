@@ -32,16 +32,18 @@
 }
 
 body {
-  height: 100%;
+  //   height: 100%;
   font-family: Roboto;
-  display: flex;
+  width: 100%;
+  //   display: flex;
   justify-content: center;
   //   position: relative;
   .main-container {
+    display: grid;
     width: 100%;
     height: 100%;
-    gap: 30px;
-    position: relative;
+    // gap: 30px;
+    // position: relative;
   }
 }
 
@@ -74,6 +76,8 @@ header {
       justify-content: center;
       padding-right: calc(100% - 85%);
       .logo {
+        // width: 175px;
+        // height: 30px;
         @include logo;
       }
       @include tab {
@@ -89,202 +93,222 @@ header {
 img {
   width: 100%;
   height: 275px;
+  object-fit: cover;
+  background-position: top;
   //   position: absolute;
 }
-.main-card {
+
+.main-container {
+  display: flex;
   width: 100%;
-  //   display: grid;
-  justify-content: center;
-  overflow: hidden;
-  position: absolute;
-  top: 283px;
-  background-color: c.$secondary-bg-color;
-  border-radius: 35px 35px 0 0;
-  margin-top: -10px;
-  padding: 30px 10px 218px;
-  @include tab {
-    display: grid;
-  }
-  //   margin-bottom: 270px;
+  height: 100%;
+  //   justify-content: center;
+  // gap: 30px;
+  position: relative;
 
-  .section-menu {
+  .main-card {
     width: 100%;
-    .card-title {
-      display: flex;
-      //   justify-content: center;
-      align-items: center;
-      margin-bottom: 30px;
-      //   gap: 20px;
-      width: 100%;
+    max-width: 1055px;
+    display: grid;
+    // justify-content: center;
+    overflow: hidden;
+    //   position: absolute;
+    //   top: 283px;
+    background-color: c.$secondary-bg-color;
+    border-radius: 35px 35px 0 0;
+    margin-top: -40px;
+    padding: 30px 10px;
+    @include tab {
+      display: grid;
+    }
+    @include desktop {
       justify-content: center;
-      @include tab {
-        display: flex;
-        justify-content: center;
-        gap: 0;
-      }
-      h1 {
-        font-family: "shrikhand";
-        font-size: 28px;
-        font-style: italic;
-        font-weight: 400;
-        display: grid;
-        margin-left: 10px;
-        // display: flex;
-        // justify-content: center;
-        @include tab {
-          font-size: 28px;
-          //   display: flex;
-          //   justify-content: space-around;
-        }
-      }
-      .btn-heart {
-        // position: absolute;
-        // right: 40px;
-        margin-left: 20px;
-        @include btn-heart;
-        // @include tab {
-        // margin-left: 20px;
-
-        //   position: static;
-        // }
-      }
+      margin: -40px auto 0;
     }
 
-    // @keyframes apparition {
-    //   to {
-    //     opacity: 1;
-    //   }
-    // }
-    .card-menu {
+    .section-menu {
       width: 100%;
-      // height: 27px;
-      margin-bottom: 35px;
-      gap: 5px;
-      //  animation: apparition 2s forwards;
       @include tab {
-        width: 634px;
-        display: flex;
+        display: grid;
         justify-content: center;
-        flex-direction: column;
       }
-      h2 {
-        text-transform: uppercase;
-        font-size: 16px;
-        font-weight: 100;
-        border-bottom: 3px solid c.$accent-color;
-        width: 40px;
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-      }
-      .card-dish {
-        //   min-width: 349px;
+      .card-title {
+        display: flex;
+        //   justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        //   gap: 20px;
         width: 100%;
-        height: 69px;
-        background-color: c.$primary-bg-color;
-        margin-top: 10px;
-        display: flex;
-        position: relative;
-        gap: 5px;
-        border-radius: 15px;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transition: transform 1s ease;
-        &:hover {
-          .price {
-            opacity: 1;
-            right: 70px;
-            animation: slidein 1s forwards;
-          }
-          .check-content {
-            visibility: visible;
-            position: absolute;
-            right: 0px;
-            width: 59px;
-            animation: slidein 1s forwards;
-          }
-          .dish-content {
-            width: 72%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          .dish-details {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        justify-content: center;
+        @include tab {
+          display: flex;
+          justify-content: center;
+          gap: 0;
+        }
+        h1 {
+          font-family: "shrikhand";
+          font-size: 28px;
+          font-style: italic;
+          font-weight: 400;
+          display: grid;
+          margin-left: 10px;
+          // display: flex;
+          // justify-content: center;
+          @include tab {
+            font-size: 28px;
+            //   display: flex;
+            //   justify-content: space-around;
           }
         }
-        &:not(:hover) {
-          .price {
-            animation: slideout 1s both;
-          }
-          .check-content {
-            animation: slideout 1s both;
-          }
+        .btn-heart {
+          // position: absolute;
+          // right: 40px;
+          margin-left: 20px;
+          @include btn-heart;
+          // @include tab {
+          // margin-left: 20px;
+
+          //   position: static;
+          // }
         }
       }
 
-      .dish-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 90%;
-        padding: 12px;
-
-        .dish-title {
-          font-weight: 500;
-          font-size: 18px;
+      // @keyframes apparition {
+      //   to {
+      //     opacity: 1;
+      //   }
+      // }
+      .card-menu {
+        width: 100%;
+        // height: 27px;
+        margin-bottom: 35px;
+        gap: 5px;
+        //  animation: apparition 2s forwards;
+        @include tab {
+          width: 634px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
         }
-        .dish-details {
+        h2 {
+          text-transform: uppercase;
           font-size: 16px;
           font-weight: 100;
-          width: 80%;
+          border-bottom: 3px solid c.$accent-color;
+          width: 40px;
+          padding-bottom: 5px;
+          margin-bottom: 15px;
         }
-      }
-      .price {
-        width: 60px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        font-size: 15px;
-        font-weight: 500;
-        padding-bottom: 12px;
-        position: absolute;
-        right: 60px;
-        top: 38px;
-        transition: all 1s ease;
-      }
-
-      .check-content {
-        visibility: hidden;
-        width: 59px;
-        height: 69px;
-        border-radius: 0 15px 15px 0;
-        background-color: c.$accent-color;
-        padding: 23px 18px;
-        position: absolute;
-        right: 0px;
-        transition: all 1s ease;
-
-        i {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .card-dish {
+          //   min-width: 349px;
+          width: 100%;
+          height: 69px;
           background-color: c.$primary-bg-color;
-          width: 23px;
-          height: 23px;
-          border-radius: 50%;
-          color: c.$accent-color;
+          margin-top: 10px;
+          display: flex;
+          position: relative;
+          gap: 5px;
+          border-radius: 15px;
+          box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          transition: transform 1s ease;
+          &:hover {
+            .price {
+              opacity: 1;
+              right: 70px;
+              animation: slidein 1s forwards;
+            }
+            .check-content {
+              visibility: visible;
+              position: absolute;
+              right: 0px;
+              width: 59px;
+              animation: slidein 1s forwards;
+            }
+            .dish-content {
+              width: 72%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            .dish-details {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+          &:not(:hover) {
+            .price {
+              animation: slideout 1s both;
+            }
+            .check-content {
+              animation: slideout 1s both;
+            }
+          }
+        }
+
+        .dish-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 90%;
+          padding: 12px;
+
+          .dish-title {
+            font-weight: 500;
+            font-size: 18px;
+          }
+          .dish-details {
+            font-size: 16px;
+            font-weight: 100;
+            width: 80%;
+          }
+        }
+        .price {
+          width: 60px;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          font-size: 15px;
+          font-weight: 500;
+          padding-bottom: 12px;
+          position: absolute;
+          right: 60px;
+          top: 38px;
+          transition: all 1s ease;
+        }
+
+        .check-content {
+          visibility: hidden;
+          width: 59px;
+          height: 69px;
+          border-radius: 0 15px 15px 0;
+          background-color: c.$accent-color;
+          padding: 23px 18px;
+          position: absolute;
+          right: 0px;
+          transition: all 1s ease;
+
+          i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: c.$primary-bg-color;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            color: c.$accent-color;
+          }
         }
       }
     }
-  }
-  .btnOrder-content {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    .btn-order {
-      @include btn;
+    .btnOrder-content {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      .btn-order {
+        @include btn;
+      }
     }
   }
 }
@@ -294,14 +318,16 @@ footer {
   background-color: c.$footer-bg-color;
   color: c.$primary-bg-color;
   padding: 10px 25px;
-  position: absolute;
-  bottom: -1215px;
+  //   position: absolute;
+  //   bottom: -1215px;
   width: 100%;
   .footer-content {
     @include tab {
       display: flex;
       flex-direction: row-reverse;
       justify-content: flex-start;
+      align-items: flex-end;
+      padding-top: 35px;
       gap: 15px;
     }
     @include desktop {
