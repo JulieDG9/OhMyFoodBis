@@ -67,12 +67,17 @@ header {
   height: 100px;
 }
 header .navbar-pages {
-  height: 100px;
+  height: 70px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+}
+@media only screen and (min-width: 768px) {
+  header .navbar-pages {
+    height: 100px;
+  }
 }
 header .navbar-pages a {
   text-decoration: none;
@@ -240,14 +245,14 @@ img {
   display: flex;
   position: relative;
   gap: 5px;
+  margin-top: 15px;
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 1s ease;
+  transition: transform 5s ease;
 }
 .main-container .main-card .section-menu .card-menu .card-dish:hover .price {
   opacity: 1;
-  right: 70px;
   animation: slidein 1s forwards;
 }
 .main-container .main-card .section-menu .card-menu .card-dish:hover .check-content {
@@ -258,12 +263,13 @@ img {
   animation: slidein 1s forwards;
 }
 .main-container .main-card .section-menu .card-menu .card-dish:hover .dish-content {
-  width: 72%;
+  width: 83%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .main-container .main-card .section-menu .card-menu .card-dish:hover .dish-details {
+  width: 75%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -286,12 +292,13 @@ img {
   font-size: 18px;
 }
 .main-container .main-card .section-menu .card-menu .dish-content .dish-details {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 100;
-  width: 80%;
+  width: 100%;
 }
 .main-container .main-card .section-menu .card-menu .price {
   width: 60px;
+  background-color: white;
   display: flex;
   align-items: flex-end;
   justify-content: center;
