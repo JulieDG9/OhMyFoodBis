@@ -91,13 +91,20 @@ header {
       color: c.$footer-bg-color;
     }
     .location-input {
-      width: 115px;
+      width: 120px;
+      padding: 5px;
       &::placeholder {
         color: c.$footer-bg-color;
       }
       background-color: c.$location-bg-color;
       border: none;
       font-size: 1rem;
+      &:focus {
+        outline: none;
+        &::placeholder {
+          opacity: 0.5;
+        }
+      }
     }
   }
 }

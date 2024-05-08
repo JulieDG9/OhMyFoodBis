@@ -89,13 +89,20 @@ header .location .fa-solid fa-location-dot {
   color: #353535;
 }
 header .location .location-input {
-  width: 115px;
+  width: 120px;
+  padding: 5px;
   background-color: #eaeaea;
   border: none;
   font-size: 1rem;
 }
 header .location .location-input::placeholder {
   color: #353535;
+}
+header .location .location-input:focus {
+  outline: none;
+}
+header .location .location-input:focus::placeholder {
+  opacity: 0.5;
 }
 
 .explore {
